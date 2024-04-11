@@ -7,9 +7,6 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "My App",
   description: "My awesome app",
-  lang: "en",
-  viewport: "width=device-width, initial-scale=1",
-  charset: "utf-8",
   
 };
 

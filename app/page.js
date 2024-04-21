@@ -5,7 +5,7 @@ import Footer from "./components/footer";
 
 export default function Home() {
   return (
-    <div className=" flex flex-col gap-10 bg-gray-800 ">
+    <div className=" flex flex-col  bg-gray-800 ">
     <LandinPage/>
     <HowItWorks/>
     <Footer/>

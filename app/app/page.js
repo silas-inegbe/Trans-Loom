@@ -81,20 +81,20 @@ function Home() {
   };
 
   // text to speech
-  const speech = new SpeechSynthesisUtterance();
-  speech.text = Output;
-  speech.volume = 1;
-  speech.rate = 1;
-  speech.pitch = 1.5;
-  speech.lang = "en-US";
-  speech.voice = speechSynthesis
-    .getVoices()
-    .filter((voice) => voice.lang === "en-US")[5];
+  // const speech = new SpeechSynthesisUtterance();
+  // speech.text = Output;
+  // speech.volume = 1;
+  // speech.rate = 1;
+  // speech.pitch = 1.5;
+  // speech.lang = "en-US";
+  // speech.voice = speechSynthesis
+  //   .getVoices()
+  //   .filter((voice) => voice.lang === "en-US")[5];
 
-  const onSpeak = () => {
-    speech.text = Input;
-    window.speechSynthesis.speak(speech);
-  };
+  // const onSpeak = () => {
+  //   speech.text = Input;
+  //   window.speechSynthesis.speak(speech);
+  // };
 
   //get items from local storage
   useEffect(() => {
@@ -228,7 +228,7 @@ function Home() {
                           ? "text-white animate-none"
                           : "text-gray-300 animate-none"
                       }
-                      onClick={onSpeak}
+                      // onClick={onSpeak}
                     />
                   </button>
                   <button

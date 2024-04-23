@@ -13,7 +13,6 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [disable, setDisable] = useState(true);
   const router = useRouter();
-  const { user } = useUser();
   //email change handler
   const emailChange = (event) => {
     const value = event.target.value;
@@ -82,7 +81,7 @@ const Login = () => {
         "Login to Transloom to start translating text and documents from one language to another."
       );
   }, []);
-  console.log("user==", user);
+  // console.log("user==", user);
   // console.log(data, error, loading);
   // console.log("test",test);
   return (

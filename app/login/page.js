@@ -5,8 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaSpinner } from "react-icons/fa";
 import { supabase } from "../lib/helper/supabaseClient";
 import { useRouter } from "next/navigation";
-import { useUser } from "../context/usercontext";
-
+y
 
 // import Layout2 from "./layoutt";
 const Login = () => {

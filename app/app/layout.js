@@ -1,11 +1,11 @@
 import React from "react";
-import { Protect } from "../security/protect";
+import AuthCheck from "../components/authCheck";
+// import { useRouter } from "next/navigation";
 
 export default function Layout({ children }) {
-    return (
 
-        <Protect>
+    return (
+        <AuthCheck>
             {children}
-        </Protect>
-    );
+        </AuthCheck>)
 }

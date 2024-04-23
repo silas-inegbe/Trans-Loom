@@ -5,23 +5,26 @@ import { useUser } from "../context/usercontext";
 import LoadingComp from "../loading";
 
 const Protect = ({ children }) => {
-    const { user } = useUser();
+    // const { user } = useUser();
+    const data = process.env.NEXT_AUTH_TOKEN;
     const router = useRouter();
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (user && user.user.role !== "authenticated") {
+        const user = JSON.parse(localStorage.getItem(data))
+        if (user === null || (user && user.user.role !== "authenticated")) {
             router.push("/login");
         } else {
             setLoading(false);
         }
-    }, [user, router]); // Added user and router to the dependency array
-    console.log("user00-", user)
+    }, [data]);
+
     if (loading) {
-        return <LoadingComp />; // Added conditional rendering for the loading component
+        return <LoadingComp />;
     }
 
     return children;
 };
+
 
 export { Protect };

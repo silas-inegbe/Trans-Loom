@@ -4,19 +4,20 @@ import { useRouter } from "next/navigation";
 import { useUser } from "../context/usercontext";
 import LoadingComp from "../loading";
 
-const unProtect = ({ children }) => {
+const UnProtect = ({ children }) => {
     const { user } = useUser();
     const router = useRouter();
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (user && user.user.role === "authenticated") {
-            router.push("/login");
+        if (user !== null || (user && user.user.role === "authenticated")) {
+            // return to where youa re coming from
+            router.back();
         } else {
             setLoading(false);
         }
     }, [user, router]); // Added user and router to the dependency array
-    console.log("user00-", user)
+    console.log("user001-", user)
     if (loading) {
         return <LoadingComp />; // Added conditional rendering for the loading component
     }
@@ -24,4 +25,4 @@ const unProtect = ({ children }) => {
     return children;
 };
 
-export { unProtect };
+export { UnProtect };

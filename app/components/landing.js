@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from "react";
 import image from '../assets/10.png'
+import image2 from '../assets/ui-transloom.svg'
+import image3 from '../assets/9731553.png'
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,8 +57,8 @@ function LandinPage() {
                   ))
                 }
               </nav>
-              <IoMenuOutline className={`lg:hidden ${show ? "hidden" : "block"} text-4xl text-[#52796f]`} onClick={handleClick} />
-              <IoClose className={`${show ? "block" : "hidden"} text-4xl text-[#52796f]`} onClick={handleClick} />
+              <IoMenuOutline className={`lg:hidden ${show ? "hidden" : "block"} text-4xl text-[#52796f] hover:cursor-pointer`} onClick={handleClick} />
+              <IoClose className={`${show ? "block" : "hidden"} text-4xl text-[#52796f] hover:cursor-pointer`} onClick={handleClick} />
 
               <button onClick={() => router.push('/signup')} 
               className="hidden px-4 py-2 text-white uppercase bg-[#52796f] border-2 border-transparent rounded-lg text-md lg:block">
@@ -85,7 +87,7 @@ function LandinPage() {
               <span className="w-20 h-2 mb-12 bg-[#52796f]"></span>
               <h1 className="flex flex-col text-6xl font-black leading-none uppercase font-bebas-neue sm:text-8xl text-white">
                 Just
-                <span className="text-4xl sm:text-7xl">Say it</span>
+                <span className="text-4xl sm:text-7xl">Type it</span>
               </h1>
               <p className="text-sm sm:text-base text-white">
                 Dimension of reality that makes change possible and
@@ -119,7 +121,7 @@ function LandinPage() {
               </div>
             </div>
             <div className="relative z-50 hidden sm:block sm:w-1/3 lg:w-3/5">
-              <Image src={image} alt="**" className=" max-w-xs m-auto md:max-w-sm" />
+              <Image src={image3} draggable={false} alt="**" className=" absolute -top-16 left-32 object-fill h-[auto] object-bottom w-[500px] m-auto" />
             </div>
           </div>
         </div>
@@ -129,4 +131,4 @@ function LandinPage() {
   );
 }
 
-export default LandinPage;
+export default LandinPage;2

@@ -14,6 +14,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import { supabase } from "../lib/helper/supabaseClient";
+import Header from "../components/headerT";
+import Footer from "../components/footer";
 
 
 /**
@@ -100,7 +102,18 @@ function Home() {
   //   window.speechSynthesis.speak(speech);
   // };
 
-  //get items from local storage
+  const info = () => {
+    toast("This feature is not available yet", {
+      type: "info",
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+    });
+  }
+
   useEffect(() => {
     document.title = "Transloom | App";
     // document
@@ -113,19 +126,21 @@ function Home() {
   return (
 
     <>
-      <div className="lg:h-[fit] bg-[#DFDFDF] p-3 lg:p-10 lg:pt-28 pt-20 lg:px-32 flex flex-col lg:flex-row justify-center gap-5 ">
+      <Header />
+
+      <div className="lg:h-[fit] bg-[#DFDFDF] p-3 lg:p-10 lg:pt-40 lg:px-32 flex flex-col lg:flex-row justify-center gap-5 pt-40 pb-20">
         {/* input department */}
-        <div className="h-[70vh] lg:h-[80vh] w-full lg:w-1/2 bg-white flex flex-col rounded">
-          <div className=" bg-purple-800 h-16 colo flex items-center rounded-t gap-1 px-1 lg:gap-0">
+        <div className="h-[75vh] md:h-svh lg:h-[80vh] w-full lg:w-1/2 bg-white flex flex-col rounded">
+          <div className=" bg-[#52796f] h-16 colo flex items-center justify-evenly rounded-t gap-1 px-1 lg:gap-0">
             <HiLanguage className="text-white text-2xl lg:ml-5" />
-            <span className="text-gray-100 text-xl ml-5">Translate</span>
-            <span className="text-gray-100 text-lg ml-5 flex-row flex gap-5 border border-gray-400 px-5 py-1 rounded transition-all duration-300 ease-in-out">
+            <span className="text-white text-xl ml-5">Translate</span>
+            <span className="text-white text-lg ml-5 flex-row flex lg:gap-5 gap-3 border border-white lg:px-5 px-3 py-1 rounded transition-all duration-300 ease-in-out">
               {InputLanguages.map((lang, index) => (
                 <span
                   key={index}
                   className={
                     lang === activeLanguage
-                      ? "text-purple-800 font-bold bg-gray-50 px-2 rounded"
+                      ? "text-[#52796f] font-bold bg-white px-2 rounded"
                       : "text-gray-100 cursor-pointer"
                   }
                   onClick={() => setActiveLanguage(lang)}
@@ -135,22 +150,26 @@ function Home() {
               ))}
             </span>
           </div>
-          <div className="h-full border border-gray-300 shadow-md m-5 flex flex-col">
+          <div className="h-full border border-white shadow-md m-5 flex flex-col">
             <textarea
               type="text"
               placeholder="Type here Text to translate"
-              className="border w-full p-3 outline-none resize-none flex-grow text-gray-800 font-semibold"
+              className="border lg:text-lg w-full p-3 outline-none resize-none flex-grow text-gray-800 font-semibold"
               // value=""
               name="input"
               onChange={InputChangeHandler}
             />
             <div className=" h-16  flex items-center justify-between px-5 ">
               <div className=" flex flow-row gap-3">
-                <span className="h-12 shadow hover:shadow-md w-12 rounded-full colo flex items-center justify-center text-2xl cursor-pointer">
+                <span 
+                onClick={info}
+                className="h-12 shadow hover:shadow-md w-12 rounded-full bg-[#52796f] flex items-center justify-center text-2xl cursor-pointer">
                   <FaMicrophone className="text-white" />
                 </span>
-                <span className="h-12 shadow hover:shadow-md w-12 rounded-full colo flex items-center justify-center text-2xl cursor-pointer">
-                  <HiSpeakerWave className="text-white animate-none" />
+                <span 
+                onClick={info}
+                className="h-12 shadow hover:shadow-md w-12 rounded-full bg-[#52796f] flex items-center justify-center text-2xl cursor-pointer">
+                  <HiSpeakerWave className="text-white" />
                 </span>
               </div>
 
@@ -160,7 +179,7 @@ function Home() {
                   data-tooltip-content="Send"
                   data-tooltip-place="top"
                   disabled={Input ? false : true}
-                  className={`disabled:cursor-default h-10 shadow hover:shadow-md w-14 rounded colo flex items-center justify-center text-3xl cursor-pointer`}
+                  className={`disabled:cursor-default h-10 shadow hover:shadow-md w-14 rounded bg-[#52796f] flex items-center justify-center text-3xl cursor-pointer`}
                 >
                   {loading ? (
                     <FaSpinner className="animate-spin text-white" />
@@ -169,7 +188,7 @@ function Home() {
                       className={
                         Input
                           ? "text-white animate-none tool-tip"
-                          : "text-gray-300 animate-none"
+                          : "text-gray-200 animate-none"
                       }
                       onClick={Translate}
                     />
@@ -191,18 +210,18 @@ function Home() {
         </div>
 
         {/* output department */}
-        <div className=" h-[70vh] lg:h-[80vh] w-full lg:w-1/2 bg-white flex flex-col rounded">
-          <div className=" bg-purple-800 h-16 colo flex items-center rounded-t">
+        <div className=" h-[75vh] md:h-svh lg:h-[80vh] w-full lg:w-1/2 bg-white flex flex-col rounded">
+          <div className=" bg-[#52796f] h-16 colo flex items-center rounded-t">
             <div className=" flex flex-row gap-20 lg:gap-36 mx-auto">
-              <GoArrowSwitch className="text-gray-300 text-3xl ml-5" />
-              <span className="text-gray-100 text-lg ml-5 flex-row flex gap-5 border border-gray-400 px-5 py-1 rounded transition-all duration-300 ease-in-out">
+              <GoArrowSwitch className="text-white text-3xl ml-5" />
+              <span className="text-white text-lg ml-5 flex-row flex lg:gap-5 gap-3 border border[#52796f] lg:px-5 px-3 py-1 rounded transition-all duration-300 ease-in-out">
                 {OutputLanguages.map((lang, index) => (
                   <span
                     key={index}
                     className={
                       lang === activeOutputLanguage
-                        ? "text-purple-800 font-bold bg-gray-50 px-2 rounded"
-                        : "text-gray-100 cursor-pointer"
+                        ? "text-[#52796f] font-bold bg-white px-2 rounded"
+                        : "text-white cursor-pointer"
                     }
                     onClick={() => setActiveOutputLanguage(lang)}
                   >
@@ -212,7 +231,7 @@ function Home() {
               </span>
             </div>
           </div>
-          <div className="h-full border border-gray-300 shadow-md m-5 flex flex-col">
+          <div className="h-full border border-white shadow-md m-5 flex flex-col">
             <textarea
               type="text"
               placeholder={loading ? "Loading.." : ""}
@@ -224,20 +243,21 @@ function Home() {
             <div className=" h-16 border flex items-center justify-between px-5 ">
               <div className=" flex flow-row gap-3">
                 <button
-                  className="h-12 disabled:cursor-default shadow hover:shadow-md w-12 rounded-full colo flex items-center justify-center text-2xl cursor-pointer"
+                  className="h-12 disabled:cursor-default shadow hover:shadow-md w-12 rounded-full bg-[#52796f] flex items-center justify-center text-2xl cursor-pointer"
                   disabled={Output ? false : true}
                 >
                   <HiSpeakerWave
                     className={
                       Output
                         ? "text-white animate-none"
-                        : "text-gray-300 animate-none"
+                        : "text-gray-200 animate-none"
                     }
+                    onClick={info}
                   // onClick={onSpeak}
                   />
                 </button>
                 <button
-                  className="h-12 disabled:cursor-default shadow hover:shadow-2xl w-12 rounded-full colo flex items-center justify-center text-2xl cursor-pointer"
+                  className="h-12 disabled:cursor-default shadow hover:shadow-2xl w-12 rounded-full bg-[#52796f] flex items-center justify-center text-2xl cursor-pointer"
                   disabled={Output ? false : true}
                 >
                   <IoIosCopy
@@ -245,7 +265,7 @@ function Home() {
                     className={
                       Output
                         ? "text-white animate-none"
-                        : "text-gray-300 animate-none"
+                        : "text-gray-200 animate-none"
                     }
                   />
                 </button>
@@ -254,6 +274,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Footer />
       <ToastContainer />
     </>
   );

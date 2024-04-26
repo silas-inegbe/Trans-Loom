@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaSpinner } from "react-icons/fa";
 import { supabase } from "../lib/helper/supabaseClient";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 // import Layout2 from "./layoutt";
 const Login = () => {
@@ -86,19 +87,22 @@ const Login = () => {
   // console.log("test",test);
   return (
 
-    <div className="bg-gray-800 h-[100vh] lg:flex lg:items-center lg:justify-center">
+    <div className="bg-gray-800 min-h-svh md:h-fit lg:min-h-svh flex items-center justify-center">
       {" "}
       <div className="p-8 lg:w-1/2 mx-auto">
         {" "}
         <div className="bg-white rounded-t-lg p-8">
           {" "}
-          <p className="text-center text-sm text-gray-400 font-light">
-            Sign in with
-          </p>{" "}
+          <div>
+            
+          </div>
+          <Link href="/">
+            <h3 className="uppercase text-gray-800 text-center text-2xl lg:text-4xl md:text-3xl font-bold">trans.<span className="text-[#52796f]">loom</span></h3>
+          </Link>
           <div>
             {" "}
             <div className=" flex items-center justify-center space-x-4 mt-3">
-              <button className=" w-2/5 flex items-center justify-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-indigo-500 border hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transdiv hover:-translate-y-0.5">
+              <button className=" hidden w-2/5  items-center justify-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-indigo-500 border hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transdiv hover:-translate-y-0.5">
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -130,9 +134,9 @@ const Login = () => {
         </div>{" "}
         <div className="bg-gray-100 rounded-b-lg py-12 px-4 lg:px-24">
           {" "}
-          <p className="text-center text-sm text-gray-500 font-light">
+          <p className="text-center text-lg text-gray-800 font-medium">
             {" "}
-            Or sign in with credentials{" "}
+            Sign in with credentials{" "}
           </p>{" "}
           <div className="mt-6">
             {" "}
@@ -149,7 +153,7 @@ const Login = () => {
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-7 w-7 ml-3 text-gray-400 p-1"
+                  className="h-7 w-7 ml-3  text-[#52796f] opacity-80 p-1"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -172,7 +176,7 @@ const Login = () => {
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-7 w-7 ml-3 text-gray-400 p-1"
+                  className="h-7 w-7 ml-3 text-[#52796f] opacity-80 p-1"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -181,7 +185,7 @@ const Login = () => {
                 </svg>{" "}
               </div>{" "}
             </div>{" "}
-            <div className="mt-4 flex items-center text-gray-500">
+            <div className="mt-4 flex items-center text-gray-700">
               {" "}
               <input
                 type="checkbox"
@@ -191,13 +195,13 @@ const Login = () => {
               />{" "}
               <label htmlFor="remember">Remember me</label>{" "}
             </div>{" "}
-            <div className="flex items-center justify-center mt-8">
+            <div className="flex items-center flex-col gap-3 justify-center mt-8">
               {" "}
               <button
                 onClick={signInUser}
                 disabled={loading || disable}
                 className={`
-                text-white py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transdiv hover:-translate-y-0.5 disabled:cursor-not-allowed
+                text-white py-2 px-4 uppercase rounded bg-[#52796f] shadow hover:shadow-lg font-medium transition transdiv hover:-translate-y-0.5 disabled:cursor-not-allowed
                 ${loading ? "cursor-not-allowed" : " cursor-pointer"}
                 `}
               >
@@ -207,6 +211,9 @@ const Login = () => {
                   "LOGIN"
                 )}
               </button>
+              <Link href="/signup">
+                <p className=" font-medium text-sm text-[#52796f]">Don't have an account? Sign up</p>
+              </Link>
             </div>{" "}
           </div>{" "}
         </div>{" "}

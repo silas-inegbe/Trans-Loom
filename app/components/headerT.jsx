@@ -51,7 +51,7 @@ const Header = () => {
         <div className="px-3 md:px-5 w-full h-full flex items-center justify-between">
           <div className="flex items-center w-full m-0 justify-between">
             <div className="w-full justify-between flex items-center">
-              <Link href="/">
+              <Link href="/app">
                 <h3 className="uppercase text-white text-center text-2xl font-bold">
                   trans.<span className="text-[#52796f]">loom</span>
                 </h3>

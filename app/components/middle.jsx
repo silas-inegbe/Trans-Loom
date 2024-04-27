@@ -7,8 +7,8 @@ const HowItWorks = () => {
             How does it work?
           </h2>
           <p className="max-w-lg mx-auto mt-4 text-lg leading-relaxed text-gray-100">
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis.
+            TransLoom is a translation tool that allows you to translate your
+            text to any language of your choice. It is easy to use and swift.
           </p>
         </div>
 
@@ -30,8 +30,7 @@ const HowItWorks = () => {
                 Create a free account
               </h3>
               <p className="mt-4 text-base text-white ">
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim velit mollit.
+                First you need to create an account to start using TransLoom.
               </p>
             </div>
 
@@ -43,8 +42,8 @@ const HowItWorks = () => {
                 Type your text
               </h3>
               <p className="mt-4 text-base text-gray-100 ">
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim velit mollit.
+                Type or paste the text you want to translate into the input box.
+
               </p>
             </div>
 
@@ -56,8 +55,8 @@ const HowItWorks = () => {
                 Translate to any language
               </h3>
               <p className="mt-4 text-base text-gray-200 ">
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim velit mollit.
+                Choose the language you want to translate your text to and click
+                the translate button.
               </p>
             </div>
           </div>

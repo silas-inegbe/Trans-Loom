@@ -1,8 +1,53 @@
+"use client"
 import Footer from "../components/footer";
 import Header from "../components/headerT";
-import React from "react";
+import React, { useRef, useState } from "react";
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from "react-toastify";
+
 
 const Contact = () => {
+  const form = useRef();
+  const [loading, setLoading] = useState(false)
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true)
+    emailjs.sendForm(
+      'service_z3iuiyk',
+      'template_cawi4eb',
+      form.current,
+      'wJeK2pqfWhXF2zghy'
+    ).then(
+      (result) => {
+        setLoading(false)
+        e.target.reset();
+        toast("Message sent successfully", {
+          type: "success",
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+        });
+
+      }, (error) => {
+        setLoading(false)
+        toast("Failed to send message", {
+          type: "error",
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+        });
+      }
+    );
+  };
   return (
     <div>
       <Header />
@@ -18,12 +63,14 @@ const Contact = () => {
             </p>
           </div>
           <div className="mt-12 mx-auto px-4 p-8 bg-white sm:max-w-lg sm:px-8 sm:rounded-xl">
-            <form className="space-y-5">
+            <form ref={form} onSubmit={sendEmail} className="space-y-5">
               <div>
                 <label className="font-medium">Full name</label>
                 <input
                   type="text"
                   required
+                  name="from_name"
+                  id="from_name"
                   className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-gray-800 shadow-sm rounded-lg"
                 />
               </div>
@@ -31,37 +78,24 @@ const Contact = () => {
                 <label className="font-medium">Email</label>
                 <input
                   type="email"
+                  name="from_email"
+                  id="from_email"
                   required
                   className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-gray-800 shadow-sm rounded-lg"
                 />
               </div>
-              <div>
-                <label className="font-medium">Phone number</label>
-                <div className="relative mt-2">
-                  <div className="absolute inset-y-0 left-3 my-auto h-6 flex items-center border-r pr-2">
-                    <select className="text-sm bg-transparent outline-none rounded-lg h-full">
-                      <option>US</option>
-                      <option>ES</option>
-                      <option>MR</option>
-                    </select>
-                  </div>
-                  <input
-                    type="number"
-                    placeholder="+1 (555) 000-000"
-                    required
-                    className="w-full pl-[4.5rem] pr-3 py-2 appearance-none bg-transparent outline-none border focus:border-gray-800 shadow-sm rounded-lg"
-                  />
-                </div>
-              </div>
+             
               <div>
                 <label className="font-medium">Message</label>
                 <textarea
+                  name="message"
+                  id="message"
                   required
                   className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-none border focus:border-gray-800 shadow-sm rounded-lg"
                 ></textarea>
               </div>
-              <button className="w-full px-4 py-2 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-lg duration-150">
-                Submit
+              <button className="w-full px-4 py-2 text-white font-medium bg-[#52796f] rounded-lg duration-150">
+                {loading ? "Sending..." : "Send"}
               </button>
             </form>
           </div>
@@ -75,6 +109,7 @@ const Contact = () => {
         ></div>
       </main>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

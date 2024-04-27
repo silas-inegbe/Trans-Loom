@@ -90,9 +90,10 @@ function LandinPage() {
                 <span className="text-4xl sm:text-7xl">Type it</span>
               </h1>
               <p className="text-sm sm:text-base text-white">
-                Dimension of reality that makes change possible and
-                understandable. An indefinite and homogeneous environment in
-                which natural events and human existence take place.
+              Dimension of communication that makes understanding across 
+              cultures possible and accessible. An indefinite and 
+              diverse environment in which language translation and 
+              human interaction take place.
               </p>
               <div className="flex mt-8 mb-8 ">
                 <button onClick={() => router.push('/signup')}

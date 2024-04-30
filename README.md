@@ -1,3 +1,12 @@
+# [Trans-Loom](https://trans-loom.vercel.app) is a text and document translator built with NextJs, Express Js and Azure translation services.
+
+## Tools Used:
+- Tailwind Css
+- Email Js
+- React Icon
+- React toastify
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

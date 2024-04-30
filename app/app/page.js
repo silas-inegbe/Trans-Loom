@@ -31,15 +31,13 @@ function Home() {
   const [Output, setOutput] = useState();
   const OutputRef = useRef(null);
   const router = useRouter();
-  // const [Output, setOutput] = useState();
   const [activeLanguage, setActiveLanguage] = useState(InputLanguages[0]);
   const [activeOutputLanguage, setActiveOutputLanguage] = useState(
     OutputLanguages[0]
   );
   const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(null);
   const url = process.env.NEXT_PUBLIC_SERVER_URL;
-  //   console.log("url",url);
+
   // input change handler
   const InputChangeHandler = (e) => {
     setInput(e.target.value);
@@ -76,31 +74,12 @@ function Home() {
         },
       });
       setLoading(false);
-      // console.log(res.data);
       setOutput(res.data.message[0].translations[0].text);
     } catch (error) {
-      // console.log(error);
-      // setError(error);
       setLoading(false);
       toast(error.message, { type: "error" });
     }
   };
-
-  // text to speech
-  // const speech = new SpeechSynthesisUtterance();
-  // speech.text = Output;
-  // speech.volume = 1;
-  // speech.rate = 1;
-  // speech.pitch = 1.5;
-  // speech.lang = "en-US";
-  // speech.voice = speechSynthesis
-  //   .getVoices()
-  //   .filter((voice) => voice.lang === "en-US")[5];
-
-  // const onSpeak = () => {
-  //   speech.text = Input;
-  //   window.speechSynthesis.speak(speech);
-  // };
 
   const info = () => {
     toast("This feature is not available yet", {
